@@ -1,4 +1,4 @@
-package com.whysoserious.neeraj.hospitalmanagementsystem;
+package com.whysoserious.neeraj.hospitalmanagementsystem.activity;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,7 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
+import com.whysoserious.neeraj.hospitalmanagementsystem.Doctors_available;
+import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+
+public class MainActivity extends BaseActivity {
 
     DatabaseHelper databaseHelper;
 
@@ -23,14 +27,19 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
 
-        Bloginregister = (Button) findViewById(R.id.btn_login_register);
+        Bloginregister = findViewById(R.id.btn_login_register);
         Bloginregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Login.class);
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    protected boolean displayHomeButton() {
+        return false;
     }
 
     public void onClick(View view) {

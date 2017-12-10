@@ -12,6 +12,7 @@ import android.widget.ListView;
 import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.List;
 /**
  * Created by Neeraj on 08-Apr-16.
  */
-public class Select_Doctor extends AppCompatActivity {
+public class Select_Doctor extends BaseActivity {
 
     String username, password, user_type, specialization, slot, ss, name, hs, he;
     ListView lv_doctors;

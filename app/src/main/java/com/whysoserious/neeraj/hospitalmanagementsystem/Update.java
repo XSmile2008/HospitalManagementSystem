@@ -1,26 +1,14 @@
 package com.whysoserious.neeraj.hospitalmanagementsystem;
 
-import android.app.Activity;
-import android.app.DialogFragment;
-import android.app.FragmentManager;
-import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.whysoserious.neeraj.hospitalmanagementsystem.Desktop_Admin.Desktop_Admin;
-import com.whysoserious.neeraj.hospitalmanagementsystem.Doctor.Doctor;
-import com.whysoserious.neeraj.hospitalmanagementsystem.Patient.Patient;
-import com.whysoserious.neeraj.hospitalmanagementsystem.Staff_Member.Staff_Member;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +16,7 @@ import java.util.List;
 /**
  * Created by Neeraj on 17-Mar-16.
  */
-public class Update extends AppCompatActivity {
+public class Update extends BaseActivity {
 
     EditText fname, lname, age, dd, yy, city, pincode, mobno, uname, password;
     String tmp, fnames, lnames, ages, sexs, bgroups, dobs, dds, yys, mms, citys, pincodes, mobnos, unames, passwords, utypes, username, pass, date, month, year;
@@ -48,21 +36,21 @@ public class Update extends AppCompatActivity {
 
 
         //DEFINING ALL VIEWS
-        fname = (EditText) findViewById(R.id.etfname);
-        lname = (EditText) findViewById(R.id.etlname);
-        age = (EditText) findViewById(R.id.etage);
-        dd = (EditText) findViewById(R.id.etdd);
-        yy = (EditText) findViewById(R.id.etyy);
-        city = (EditText) findViewById(R.id.etcity);
-        pincode = (EditText) findViewById(R.id.etpin);
-        mobno = (EditText) findViewById(R.id.etmobile);
-        uname = (EditText) findViewById(R.id.etusername);
-        password = (EditText) findViewById(R.id.etpassword);
-        register = (Button) findViewById(R.id.bregister);
-        mm = (Spinner) findViewById(R.id.spinnermonth);
-        sex = (Spinner) findViewById(R.id.spinnersex);
-        usertype = (Spinner) findViewById(R.id.spinnerusertype);
-        bgroup = (Spinner) findViewById(R.id.spinnerbgroup);
+        fname = findViewById(R.id.etfname);
+        lname = findViewById(R.id.etlname);
+        age = findViewById(R.id.etage);
+        dd = findViewById(R.id.etdd);
+        yy = findViewById(R.id.etyy);
+        city = findViewById(R.id.etcity);
+        pincode = findViewById(R.id.etpin);
+        mobno = findViewById(R.id.etmobile);
+        uname = findViewById(R.id.etusername);
+        password = findViewById(R.id.etpassword);
+        register = findViewById(R.id.bregister);
+        mm = findViewById(R.id.spinnermonth);
+        sex = findViewById(R.id.spinnersex);
+        usertype = findViewById(R.id.spinnerusertype);
+        bgroup = findViewById(R.id.spinnerbgroup);
         dbh = new DatabaseHelper(this);
 
         List<String> category = new ArrayList<>();

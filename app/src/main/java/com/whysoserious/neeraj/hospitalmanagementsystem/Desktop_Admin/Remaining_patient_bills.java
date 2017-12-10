@@ -9,13 +9,14 @@ import android.widget.ListView;
 import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 
 /**
  * Created by Neeraj on 08-Apr-16.
  */
-public class Remaining_patient_bills extends AppCompatActivity {
+public class Remaining_patient_bills extends BaseActivity {
 
     String username, password, user_type;
     DatabaseHelper dbh = new DatabaseHelper(this);
@@ -32,7 +33,7 @@ public class Remaining_patient_bills extends AppCompatActivity {
         password = bb.getString("password");
         user_type = bb.getString("user_type");
 
-        lv_remiaing_bills = (ListView) findViewById(R.id.lv_remaining_bills);
+        lv_remiaing_bills = findViewById(R.id.lv_remaining_bills);
         Cursor y = dbh.checkduplicates_in_user_credentials(username, password, "all_pending_appointment");
 
         if (y.moveToFirst()) {

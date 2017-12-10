@@ -1,29 +1,25 @@
-package com.whysoserious.neeraj.hospitalmanagementsystem;
+package com.whysoserious.neeraj.hospitalmanagementsystem.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Desktop_Admin.Desktop_Admin;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Doctor.Doctor;
+import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Patient.Patient;
+import com.whysoserious.neeraj.hospitalmanagementsystem.R;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Staff_Member.Staff_Member;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Neeraj on 17-Mar-16.
  */
-public class Login extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     EditText username, password;
     String usernames, passwords;
@@ -35,16 +31,16 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        username = (EditText) findViewById(R.id.etusername);
-        password = (EditText) findViewById(R.id.etpassword);
-        Bregister = (Button) findViewById(R.id.bregister);
-        Blogin = (Button) findViewById(R.id.blogin);
+        username = findViewById(R.id.etusername);
+        password = findViewById(R.id.etpassword);
+        Bregister = findViewById(R.id.bregister);
+        Blogin = findViewById(R.id.blogin);
         dbh = new DatabaseHelper(this);
 
         Bregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Login.this, Register.class);
+                Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(i);
             }
         });
@@ -59,7 +55,7 @@ public class Login extends AppCompatActivity {
 
                 if (y.moveToFirst()) {
                     String ut = y.getString(7);
-                    Message.message(Login.this, "Welcome");
+                    Message.message(LoginActivity.this, "Welcome");
 
                     Bundle b = new Bundle();
                     b.putString("username", usernames);
@@ -68,20 +64,20 @@ public class Login extends AppCompatActivity {
 
                     Intent i;
                     if (ut.equals("Doctor")) {
-                        i = new Intent(Login.this, Doctor.class);
+                        i = new Intent(LoginActivity.this, Doctor.class);
                     } else if (ut.equals("Patient")) {
-                        i = new Intent(Login.this, Patient.class);
+                        i = new Intent(LoginActivity.this, Patient.class);
                     } else if (ut.equals("Staff Member")) {
-                        i = new Intent(Login.this, Staff_Member.class);
+                        i = new Intent(LoginActivity.this, Staff_Member.class);
                     } else {
-                        i = new Intent(Login.this, Desktop_Admin.class);
+                        i = new Intent(LoginActivity.this, Desktop_Admin.class);
                     }
 
                     i.putExtras(b);
                     startActivity(i);
                 } else {
-                    Message.message(Login.this, "No Such User Exists");
-                    Message.message(Login.this, "Please Register Your self");
+                    Message.message(LoginActivity.this, "No Such User Exists");
+                    Message.message(LoginActivity.this, "Please RegisterActivity Your self");
                 }
 
                 y.close();

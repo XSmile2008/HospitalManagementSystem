@@ -7,12 +7,14 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
+
 import java.util.ArrayList;
 
 /**
  * Created by Neeraj on 14-Apr-16.
  */
-public class Doctors_available extends AppCompatActivity {
+public class Doctors_available extends BaseActivity {
 
     ListView lv_avail;
     ArrayList<String> dname = new ArrayList<>();
@@ -24,7 +26,7 @@ public class Doctors_available extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doctors_available);
 
-        lv_avail = (ListView) findViewById(R.id.lv_doc_available);
+        lv_avail = findViewById(R.id.lv_doc_available);
 
         Cursor y = db.checkduplicates_in_user_credentials("", "", "get_all_doctors");
 

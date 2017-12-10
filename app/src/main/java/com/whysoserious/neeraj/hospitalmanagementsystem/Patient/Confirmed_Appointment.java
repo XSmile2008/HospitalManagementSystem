@@ -4,11 +4,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 /**
  * Created by Neeraj on 07-Apr-16.
  */
-public class Confirmed_Appointment extends AppCompatActivity {
+public class Confirmed_Appointment extends BaseActivity {
 
     String username,password,user_type;
 

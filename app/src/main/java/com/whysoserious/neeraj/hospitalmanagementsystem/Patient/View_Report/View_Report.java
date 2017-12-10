@@ -13,13 +13,14 @@ import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Doctor.Doctor_Patient.Write_Report;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 
 /**
  * Created by Neeraj on 08-Apr-16.
  */
-public class View_Report extends AppCompatActivity {
+public class View_Report extends BaseActivity {
 
     ListView lv_report;
     String username, password, user_type;
@@ -37,7 +38,7 @@ public class View_Report extends AppCompatActivity {
         password = bb.getString("password");
         user_type = bb.getString("user_type");
 
-        lv_report = (ListView) findViewById(R.id.lv_reports);
+        lv_report = findViewById(R.id.lv_reports);
         Cursor y = dbh.checkduplicates_in_user_credentials(username, password, "patient_identify");
 
         if (y.moveToFirst()) {

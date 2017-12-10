@@ -11,11 +11,12 @@ import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Feedback;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Personal_Info;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 /**
  * Created by Neeraj on 20-Mar-16.
  */
-public class Staff_Member extends AppCompatActivity {
+public class Staff_Member extends BaseActivity {
     String username, password, user_type;
     DatabaseHelper dbh;
     TextView sname;
@@ -26,7 +27,7 @@ public class Staff_Member extends AppCompatActivity {
         setContentView(R.layout.staff_member);
 
         dbh = new DatabaseHelper(this);
-        sname = (TextView) findViewById(R.id.tv_s_name);
+        sname = findViewById(R.id.tv_s_name);
 
 
         Bundle bb = getIntent().getExtras();

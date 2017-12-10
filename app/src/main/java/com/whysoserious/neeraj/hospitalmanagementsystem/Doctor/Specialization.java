@@ -12,13 +12,14 @@ import android.widget.Spinner;
 import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 
 /**
  * Created by Neeraj on 02-Apr-16.
  */
-public class    Specialization extends AppCompatActivity {
+public class    Specialization extends BaseActivity {
 
     ListView lvs;
     String s, username, password, user_type;
@@ -35,8 +36,8 @@ public class    Specialization extends AppCompatActivity {
         password = bb.getString("password");
         user_type = bb.getString("user_type");
 
-        lvs = (ListView) findViewById(R.id.lv_specialization);
-        et = (EditText) findViewById(R.id.et_spl);
+        lvs = findViewById(R.id.lv_specialization);
+        et = findViewById(R.id.et_spl);
 
         sp = new ArrayList<>();
 

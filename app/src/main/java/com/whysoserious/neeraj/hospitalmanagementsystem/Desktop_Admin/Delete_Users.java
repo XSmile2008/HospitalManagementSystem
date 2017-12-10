@@ -2,7 +2,6 @@ package com.whysoserious.neeraj.hospitalmanagementsystem.Desktop_Admin;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,13 +10,14 @@ import android.widget.ListView;
 import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 
 /**
  * Created by Neeraj on 13-Apr-16.
  */
-public class Delete_Users extends AppCompatActivity {
+public class Delete_Users extends BaseActivity {
 
     ListView lv_all;
     ArrayList<String> name = new ArrayList<>();
@@ -30,7 +30,7 @@ public class Delete_Users extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.delete_users);
 
-        lv_all = (ListView) findViewById(R.id.lv_all_users);
+        lv_all = findViewById(R.id.lv_all_users);
 
 
         Cursor y = db.checkduplicates_in_user_credentials("", "", "get_all_doctors");

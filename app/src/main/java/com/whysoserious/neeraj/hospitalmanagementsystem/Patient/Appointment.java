@@ -8,11 +8,12 @@ import android.view.View;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Doctor.Specialization;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Personal_Info;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 /**
  * Created by Neeraj on 07-Apr-16.
  */
-public class Appointment extends AppCompatActivity {
+public class Appointment extends BaseActivity {
 
     String username,password,user_type;
 

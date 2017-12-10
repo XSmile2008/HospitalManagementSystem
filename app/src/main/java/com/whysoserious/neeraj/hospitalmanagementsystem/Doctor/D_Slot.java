@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  * Created by Neeraj on 03-Apr-16.
  */
 
-public class D_Slot extends AppCompatActivity {
+public class D_Slot extends BaseActivity {
 
     Spinner ss, ts, se, te;
     String s, e, hr, ap, username, password, user_type;
@@ -34,12 +35,12 @@ public class D_Slot extends AppCompatActivity {
         password = bb.getString("password");
         user_type = bb.getString("user_type");
 
-        ss = (Spinner) findViewById(R.id.ss);
-        ts = (Spinner) findViewById(R.id.ts);
-        se = (Spinner) findViewById(R.id.se);
-        te = (Spinner) findViewById(R.id.te);
-        tvs = (TextView) findViewById(R.id.tv_current_slot_s);
-        tve = (TextView) findViewById(R.id.tv_current_slot_e);
+        ss = findViewById(R.id.ss);
+        ts = findViewById(R.id.ts);
+        se = findViewById(R.id.se);
+        te = findViewById(R.id.te);
+        tvs = findViewById(R.id.tv_current_slot_s);
+        tve = findViewById(R.id.tv_current_slot_e);
 
         DatabaseHelper db = new DatabaseHelper(this);
         Cursor y = db.checkduplicates_in_user_credentials(username, password, getResources().getString(R.string.doctor_slot));

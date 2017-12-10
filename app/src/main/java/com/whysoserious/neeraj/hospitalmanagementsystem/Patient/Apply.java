@@ -10,11 +10,12 @@ import android.widget.TextView;
 import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 /**
  * Created by Neeraj on 08-Apr-16.
  */
-public class Apply extends AppCompatActivity {
+public class Apply extends BaseActivity {
     String username, password, d_username, d_password, problem;
     TextView name, s_start, s_end;
     EditText et;
@@ -30,10 +31,10 @@ public class Apply extends AppCompatActivity {
         d_username = bb.getString("d_username");
         d_password = bb.getString("d_password");
 
-        name = (TextView) findViewById(R.id.tv_d_name);
-        s_end = (TextView) findViewById(R.id.tv_slot_start);
-        s_start = (TextView) findViewById(R.id.tv_slot_end);
-        et = (EditText) findViewById(R.id.et_problem);
+        name = findViewById(R.id.tv_d_name);
+        s_end = findViewById(R.id.tv_slot_start);
+        s_start = findViewById(R.id.tv_slot_end);
+        et = findViewById(R.id.et_problem);
 
         DatabaseHelper dbh = new DatabaseHelper(this);
         Cursor y = dbh.checkduplicates_in_user_credentials(d_username, d_password, getResources().getString(R.string.user_credentials));

@@ -9,13 +9,14 @@ import android.widget.ListView;
 import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 
 /**
  * Created by Neeraj on 02-Apr-16.
  */
-public class View_Leaves extends AppCompatActivity {
+public class View_Leaves extends BaseActivity {
 
     String username, password, user_type;
     ListView lvy,lvn;
@@ -31,8 +32,8 @@ public class View_Leaves extends AppCompatActivity {
         password = bb.getString("password");
         user_type = bb.getString("user_type");
 
-        lvy = (ListView) findViewById(R.id.lvy);
-        lvn = (ListView) findViewById(R.id.lvn);
+        lvy = findViewById(R.id.lvy);
+        lvn = findViewById(R.id.lvn);
 
         DatabaseHelper dbh = new DatabaseHelper(this);
         Cursor y = dbh.checkduplicates_in_user_credentials(username, password, getResources().getString(R.string.doctor_leaves));

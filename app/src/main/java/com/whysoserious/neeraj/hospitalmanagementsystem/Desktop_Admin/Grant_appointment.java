@@ -12,6 +12,7 @@ import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
 import com.whysoserious.neeraj.hospitalmanagementsystem.RowItem;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.List;
 /**
  * Created by Neeraj on 08-Apr-16.
  */
-public class Grant_appointment extends AppCompatActivity {
+public class Grant_appointment extends BaseActivity {
 
     ListView lv_appointment;
     List<String> u_p;
@@ -34,7 +35,7 @@ public class Grant_appointment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grant_appointment);
 
-        lv_appointment = (ListView) findViewById(R.id.lv_pending_appontments);
+        lv_appointment = findViewById(R.id.lv_pending_appontments);
         u_p = new ArrayList<>();
         p_p = new ArrayList<>();
 

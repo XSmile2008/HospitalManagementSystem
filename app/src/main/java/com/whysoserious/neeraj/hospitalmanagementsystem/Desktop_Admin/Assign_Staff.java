@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 /**
  * Created by Neeraj on 09-Apr-16.
  */
-public class Assign_Staff extends AppCompatActivity {
+public class Assign_Staff extends BaseActivity {
 
     Spinner s_doctor, s_staff, d, s;
     Button b_assign;
@@ -33,9 +34,9 @@ public class Assign_Staff extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.assign_staff);
 
-        s_doctor = (Spinner) findViewById(R.id.spinner_doctor);
-        s_staff = (Spinner) findViewById(R.id.spinner_staff);
-        b_assign = (Button) findViewById(R.id.b_assign);
+        s_doctor = findViewById(R.id.spinner_doctor);
+        s_staff = findViewById(R.id.spinner_staff);
+        b_assign = findViewById(R.id.b_assign);
 
         List<String> docs = new ArrayList<>();
         List<String> staff = new ArrayList<>();

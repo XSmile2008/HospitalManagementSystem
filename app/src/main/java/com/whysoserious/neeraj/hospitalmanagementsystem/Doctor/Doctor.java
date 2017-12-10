@@ -13,11 +13,12 @@ import com.whysoserious.neeraj.hospitalmanagementsystem.Doctor.Leaves.Leaves;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Feedback;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Personal_Info;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 /**
  * Created by Neeraj on 17-Mar-16.
  */
-public class Doctor extends AppCompatActivity {
+public class Doctor extends BaseActivity {
 
     String username,password,user_type;
     DatabaseHelper dbh;
@@ -29,7 +30,7 @@ public class Doctor extends AppCompatActivity {
         setContentView(R.layout.doctor);
 
         dbh = new DatabaseHelper(this);
-        dname = (TextView) findViewById(R.id.tv_d_name);
+        dname = findViewById(R.id.tv_d_name);
 
 
         Bundle bb = getIntent().getExtras();

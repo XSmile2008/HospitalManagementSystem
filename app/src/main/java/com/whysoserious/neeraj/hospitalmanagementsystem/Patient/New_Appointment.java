@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,7 +22,7 @@ import java.util.Set;
 /**
  * Created by Neeraj on 07-Apr-16.
  */
-public class New_Appointment extends AppCompatActivity {
+public class New_Appointment extends BaseActivity {
 
     String username, password, user_type, spl, slt, hs, he, ss;
     Spinner specialization, slot;
@@ -39,8 +40,8 @@ public class New_Appointment extends AppCompatActivity {
         password = bb.getString("password");
         user_type = bb.getString("user_type");
 
-        specialization = (Spinner) findViewById(R.id.spinner_specialization);
-        slot = (Spinner) findViewById(R.id.spinner_slot);
+        specialization = findViewById(R.id.spinner_specialization);
+        slot = findViewById(R.id.spinner_slot);
 
         List<String> s_slot = new ArrayList<>();
         s_slot.add("Morning (9-12)");
@@ -177,7 +178,7 @@ public class New_Appointment extends AppCompatActivity {
                     Message.message(New_Appointment.this, "Sorry no slots available");
                 }
                 break;
-            case R.id.b_search :
+            case R.id.b_search:
                 slt = slot.getSelectedItem().toString();
                 spl = specialization.getSelectedItem().toString();
                 b.putString("specialization", spl);

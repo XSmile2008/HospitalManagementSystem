@@ -12,6 +12,7 @@ import android.widget.ListView;
 import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -19,7 +20,7 @@ import java.util.Map;
 /**
  * Created by Neeraj on 02-Apr-16.
  */
-public class Report_Upload extends AppCompatActivity {
+public class Report_Upload extends BaseActivity {
 
     String username, password, user_type;
     ArrayList<String> p_name = new ArrayList<>();
@@ -27,7 +28,7 @@ public class Report_Upload extends AppCompatActivity {
     ArrayList<String> p_p = new ArrayList<>();
     ArrayList<String> p_f = new ArrayList<>();
     ArrayList<String> p_problem = new ArrayList<>();
-    ArrayList<Map<String,String>> list = new ArrayList<>();
+    ArrayList<Map<String, String>> list = new ArrayList<>();
     ListView lv_patients;
 
     DatabaseHelper dbh = new DatabaseHelper(this);
@@ -42,7 +43,7 @@ public class Report_Upload extends AppCompatActivity {
         password = bb.getString("password");
         user_type = bb.getString("user_type");
 
-        lv_patients = (ListView) findViewById(R.id.lv_current_patients);
+        lv_patients = findViewById(R.id.lv_current_patients);
 
         Cursor y = dbh.checkduplicates_in_user_credentials(username, password, getResources().getString(R.string.doctor_patient));
 
@@ -73,8 +74,7 @@ public class Report_Upload extends AppCompatActivity {
 
             ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, p_name);
             lv_patients.setAdapter(adapter);
-        }
-        else {
+        } else {
             Message.message(Report_Upload.this, "Sorry You have No Patients Right, Now");
             finish();
         }
@@ -85,15 +85,15 @@ public class Report_Upload extends AppCompatActivity {
 
                 Intent i;
                 Bundle b = new Bundle();
-                b.putString("username",username);
-                b.putString("password",password);
-                b.putString("user_type",user_type);
-                b.putString("p_username",p_u.get(position));
-                b.putString("p_password",p_p.get(position));
-                b.putString("problem",p_problem.get(position));
-                b.putString("fees",p_f.get(position));
+                b.putString("username", username);
+                b.putString("password", password);
+                b.putString("user_type", user_type);
+                b.putString("p_username", p_u.get(position));
+                b.putString("p_password", p_p.get(position));
+                b.putString("problem", p_problem.get(position));
+                b.putString("fees", p_f.get(position));
 
-                i = new Intent(Report_Upload.this,Write_Report.class);
+                i = new Intent(Report_Upload.this, Write_Report.class);
                 i.putExtras(b);
                 startActivity(i);
             }

@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 /**
  * Created by Neeraj on 02-Apr-16.
  */
-public class Leaves extends AppCompatActivity {
+public class Leaves extends BaseActivity {
 
     Spinner mm1, mm2;
     EditText dd1, dd2, yy1, yy2;
@@ -29,12 +30,12 @@ public class Leaves extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.leaves);
 
-        dd1 = (EditText) findViewById(R.id.etdd1);
-        dd2 = (EditText) findViewById(R.id.etdd2);
-        yy1 = (EditText) findViewById(R.id.etyy1);
-        yy2 = (EditText) findViewById(R.id.etyy2);
-        mm1 = (Spinner) findViewById(R.id.spinnermonth1);
-        mm2 = (Spinner) findViewById(R.id.spinnermonth2);
+        dd1 = findViewById(R.id.etdd1);
+        dd2 = findViewById(R.id.etdd2);
+        yy1 = findViewById(R.id.etyy1);
+        yy2 = findViewById(R.id.etyy2);
+        mm1 = findViewById(R.id.spinnermonth1);
+        mm2 = findViewById(R.id.spinnermonth2);
 
         Bundle bb = getIntent().getExtras();
         username = bb.getString("username");

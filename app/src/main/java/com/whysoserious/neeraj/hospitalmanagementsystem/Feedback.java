@@ -1,26 +1,20 @@
 package com.whysoserious.neeraj.hospitalmanagementsystem;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.whysoserious.neeraj.hospitalmanagementsystem.Doctor.D_Slot;
-import com.whysoserious.neeraj.hospitalmanagementsystem.Doctor.Doctor_Patient.Report_Upload;
-import com.whysoserious.neeraj.hospitalmanagementsystem.Doctor.Leaves.Leaves;
-import com.whysoserious.neeraj.hospitalmanagementsystem.Doctor.Specialization;
-import com.whysoserious.neeraj.hospitalmanagementsystem.Doctor.View_Assigned_Staff;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 import java.util.ArrayList;
 
 /**
  * Created by Neeraj on 02-Apr-16.
  */
-public class Feedback extends AppCompatActivity {
+public class Feedback extends BaseActivity {
 
     ListView lv_feed;
     EditText et_feed;
@@ -39,8 +33,8 @@ public class Feedback extends AppCompatActivity {
         password = bb.getString("password");
         user_type = bb.getString("user_type");
 
-        lv_feed = (ListView) findViewById(R.id.lv_feedback);
-        et_feed = (EditText) findViewById(R.id.et_feedback);
+        lv_feed = findViewById(R.id.lv_feedback);
+        et_feed = findViewById(R.id.et_feedback);
 
 
         Cursor y = db.checkduplicates_in_user_credentials(username, password, "FEEDBACK");

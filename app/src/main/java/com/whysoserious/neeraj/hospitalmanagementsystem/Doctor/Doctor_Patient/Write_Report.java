@@ -10,11 +10,12 @@ import android.widget.TextView;
 import com.whysoserious.neeraj.hospitalmanagementsystem.DatabaseHelper;
 import com.whysoserious.neeraj.hospitalmanagementsystem.Message;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
+import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 
 /**
  * Created by Neeraj on 08-Apr-16.
  */
-public class Write_Report extends AppCompatActivity {
+public class Write_Report extends BaseActivity {
 
     String username, password, user_type, p_username, p_password, problem, rp, fee;
     DatabaseHelper dbh;
@@ -36,9 +37,9 @@ public class Write_Report extends AppCompatActivity {
         problem = bb.getString("problem");
         fee = bb.getString("fees");
 
-        pro = (TextView) findViewById(R.id.tv_problem);
-        etr = (EditText) findViewById(R.id.et_report);
-        b_submit = (Button) findViewById(R.id.b_submit_report);
+        pro = findViewById(R.id.tv_problem);
+        etr = findViewById(R.id.et_report);
+        b_submit = findViewById(R.id.b_submit_report);
         dbh = new DatabaseHelper(this);
         pro.setText(problem);
 
