@@ -25,7 +25,7 @@ public class Desktop_Admin extends BaseActivity {
         setContentView(R.layout.desktop_admin);
 
         dbh = new DatabaseHelper(this);
-        daname = (TextView) findViewById(R.id.tv_da_name);
+        daname = findViewById(R.id.tv_da_name);
 
 
         Bundle bb = getIntent().getExtras();

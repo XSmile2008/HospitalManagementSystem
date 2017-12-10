@@ -79,24 +79,21 @@ public class Report_Upload extends BaseActivity {
             finish();
         }
 
-        lv_patients.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        lv_patients.setOnItemClickListener((parent, view, position, id) -> {
 
-                Intent i;
-                Bundle b = new Bundle();
-                b.putString("username", username);
-                b.putString("password", password);
-                b.putString("user_type", user_type);
-                b.putString("p_username", p_u.get(position));
-                b.putString("p_password", p_p.get(position));
-                b.putString("problem", p_problem.get(position));
-                b.putString("fees", p_f.get(position));
+            Intent i;
+            Bundle b = new Bundle();
+            b.putString("username", username);
+            b.putString("password", password);
+            b.putString("user_type", user_type);
+            b.putString("p_username", p_u.get(position));
+            b.putString("p_password", p_p.get(position));
+            b.putString("problem", p_problem.get(position));
+            b.putString("fees", p_f.get(position));
 
-                i = new Intent(Report_Upload.this, Write_Report.class);
-                i.putExtras(b);
-                startActivity(i);
-            }
+            i = new Intent(Report_Upload.this, Write_Report.class);
+            i.putExtras(b);
+            startActivity(i);
         });
     }
 }

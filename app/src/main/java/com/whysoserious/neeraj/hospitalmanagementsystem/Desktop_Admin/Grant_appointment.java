@@ -88,22 +88,19 @@ public class Grant_appointment extends BaseActivity {
             finish();
         }
 
-        lv_appointment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        lv_appointment.setOnItemClickListener((parent, view, position, id) -> {
 
-                Cursor x = dbh.checkduplicates_in_user_credentials(u_p.get(position), p_p.get(position), pro.get(position));
-                boolean y = false;
-                if (x.moveToFirst()) {
-                    y = dbh.update_doctor_patient(x.getString(0), x.getString(1), x.getString(2), x.getString(3), "A", x.getString(5), x.getString(6), x.getString(7));
-                }
+            Cursor x = dbh.checkduplicates_in_user_credentials(u_p.get(position), p_p.get(position), pro.get(position));
+            boolean y1 = false;
+            if (x.moveToFirst()) {
+                y1 = dbh.update_doctor_patient(x.getString(0), x.getString(1), x.getString(2), x.getString(3), "A", x.getString(5), x.getString(6), x.getString(7));
+            }
 
-                if (y) {
-                    Message.message(Grant_appointment.this, "Application Approved");
-                    finish();
-                } else {
-                    Message.message(Grant_appointment.this, "Not Approved");
-                }
+            if (y1) {
+                Message.message(Grant_appointment.this, "Application Approved");
+                finish();
+            } else {
+                Message.message(Grant_appointment.this, "Not Approved");
             }
         });
     }

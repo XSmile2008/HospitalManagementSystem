@@ -28,12 +28,9 @@ public class MainActivity extends BaseActivity {
 
 
         Bloginregister = findViewById(R.id.btn_login_register);
-        Bloginregister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(i);
-            }
+        Bloginregister.setOnClickListener(v -> {
+            Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(i);
         });
     }
 

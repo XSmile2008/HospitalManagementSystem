@@ -54,18 +54,15 @@ public class Delete_Users extends BaseActivity {
         }
 
 
-        lv_all.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        lv_all.setOnItemClickListener((parent, view, position, id) -> {
 
-                boolean by = db.delete_user_credentials(uname.get(position), pass.get(position));
+            boolean by = db.delete_user_credentials(uname.get(position), pass.get(position));
 
-                if (by) {
-                    Message.message(Delete_Users.this, "User Deleted");
-                    finish();
-                } else {
-                    Message.message(Delete_Users.this, "User Cannot Be deleted Try again");
-                }
+            if (by) {
+                Message.message(Delete_Users.this, "User Deleted");
+                finish();
+            } else {
+                Message.message(Delete_Users.this, "User Cannot Be deleted Try again");
             }
         });
     }

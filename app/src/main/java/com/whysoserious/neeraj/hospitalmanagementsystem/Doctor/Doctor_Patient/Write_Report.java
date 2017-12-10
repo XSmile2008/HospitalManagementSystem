@@ -43,19 +43,16 @@ public class Write_Report extends BaseActivity {
         dbh = new DatabaseHelper(this);
         pro.setText(problem);
 
-        b_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rp = etr.getText().toString();
+        b_submit.setOnClickListener(v -> {
+            rp = etr.getText().toString();
 
-                boolean b = dbh.update_doctor_patient(p_username, p_password, username, password, "F", problem, fee, rp);
+            boolean b = dbh.update_doctor_patient(p_username, p_password, username, password, "F", problem, fee, rp);
 
-                if (b) {
-                    Message.message(Write_Report.this, "Report uploaded successfully");
-                    finish();
-                } else {
-                    Message.message(Write_Report.this, "Report Not Uploaded, Try again");
-                }
+            if (b) {
+                Message.message(Write_Report.this, "Report uploaded successfully");
+                finish();
+            } else {
+                Message.message(Write_Report.this, "Report Not Uploaded, Try again");
             }
         });
 

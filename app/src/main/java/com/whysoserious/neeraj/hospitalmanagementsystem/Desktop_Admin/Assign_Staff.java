@@ -80,27 +80,24 @@ public class Assign_Staff extends BaseActivity {
         s_doctor.setAdapter(adapter_d);
         s_staff.setAdapter(adapter_s);
 
-        b_assign.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String d = s_doctor.getSelectedItem().toString();
-                String s = s_staff.getSelectedItem().toString();
+        b_assign.setOnClickListener(v -> {
+            String d = s_doctor.getSelectedItem().toString();
+            String s = s_staff.getSelectedItem().toString();
 
-                int id_d = s_doctor.getSelectedItemPosition();
-                int id_s = s_staff.getSelectedItemPosition();
+            int id_d = s_doctor.getSelectedItemPosition();
+            int id_s = s_staff.getSelectedItemPosition();
 
-                Cursor z = dbh.checkduplicates_in_staff(s_u.get(id_s), s_p.get(id_s), d_u.get(id_d), d_p.get(id_d));
+            Cursor z = dbh.checkduplicates_in_staff(s_u.get(id_s), s_p.get(id_s), d_u.get(id_d), d_p.get(id_d));
 
-                if (z.moveToFirst()) {
-                    Message.message(Assign_Staff.this, "Pair Already Assigned");
+            if (z.moveToFirst()) {
+                Message.message(Assign_Staff.this, "Pair Already Assigned");
+            } else {
+                boolean x = dbh.insert_staff(s_u.get(id_s), s_p.get(id_s), d_u.get(id_d), d_p.get(id_d), "Y");
+
+                if (x) {
+                    Message.message(Assign_Staff.this, "Staff assigned");
                 } else {
-                    boolean x = dbh.insert_staff(s_u.get(id_s), s_p.get(id_s), d_u.get(id_d), d_p.get(id_d), "Y");
-
-                    if (x) {
-                        Message.message(Assign_Staff.this, "Staff assigned");
-                    } else {
-                        Message.message(Assign_Staff.this, "Error occured");
-                    }
+                    Message.message(Assign_Staff.this, "Error occured");
                 }
             }
         });
