@@ -7,10 +7,12 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.Closeable;
+
 /**
  * Created by Neeraj on 18-Mar-16.
  */
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper implements Closeable {
 
     private Context context;
     private static final String DATABASE_NAME = "HMS_DATABASE.db";
@@ -31,19 +33,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // TABLE FOR USER CREDENTIAL
         try {
             db.execSQL("CREATE TABLE " + TABLE_NAME_USER + " (" +
-                            "_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                            "first_name VARCHAR," +
-                            "last_name VARCHAR," +
-                            "age VARCHAR," +
-                            "sex VARCHAR," +
-                            "dob VARCHAR," +
-                            "blood_group VARCHAR," +
-                            "u_type VARCHAR," +
-                            "city VARCHAR," +
-                            "pincode VARCHAR," +
-                            "mobile_number VARCHAR," +
-                            "password VARCHAR," +
-                            "username VARCHAR);"
+                    "_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "first_name VARCHAR," +
+                    "last_name VARCHAR," +
+                    "age VARCHAR," +
+                    "sex VARCHAR," +
+                    "dob VARCHAR," +
+                    "blood_group VARCHAR," +
+                    "u_type VARCHAR," +
+                    "city VARCHAR," +
+                    "pincode VARCHAR," +
+                    "mobile_number VARCHAR," +
+                    "password VARCHAR," +
+                    "username VARCHAR);"
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -52,12 +54,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //*****************************TABLE FOR DOCTOR LEAVES**************************************
         try {
             db.execSQL("CREATE TABLE " + TABLE_NAME_D_LEAVES + " (" +
-                            "username VARCHAR," +
-                            "password VARCHAR," +
-                            "user_type VARCHAR," +
-                            "date_from VARCHAR," +
-                            "date_to VARCHAR," +
-                            "approval VARCHAR);"
+                    "username VARCHAR," +
+                    "password VARCHAR," +
+                    "user_type VARCHAR," +
+                    "date_from VARCHAR," +
+                    "date_to VARCHAR," +
+                    "approval VARCHAR);"
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -66,12 +68,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //*****************************TABLE FOR DOCTOR SLOTS**************************************
         try {
             db.execSQL("CREATE TABLE " + TABLE_NAME_D_SLOT + " (" +
-                            "username VARCHAR," +
-                            "password VARCHAR," +
-                            "specialization VARCHAR," +
-                            "slot_from VARCHAR," +
-                            "slot_to VARCHAR," +
-                            "available VARCHAR);"
+                    "username VARCHAR," +
+                    "password VARCHAR," +
+                    "specialization VARCHAR," +
+                    "slot_from VARCHAR," +
+                    "slot_to VARCHAR," +
+                    "available VARCHAR);"
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -80,14 +82,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //*****************************TABLE FOR DOCTOR PATIENT**************************************
         try {
             db.execSQL("CREATE TABLE " + TABLE_NAME_DOCTOR_PATIENT + " (" +
-                            "p_username VARCHAR," +
-                            "p_password VARCHAR," +
-                            "d_username VARCHAR," +
-                            "d_password VARCHAR," +
-                            "granted VARCHAR," +
-                            "problem VARCHAR," +
-                            "fees_paid VARCHAR," +
-                            "report VARCHAR);"
+                    "p_username VARCHAR," +
+                    "p_password VARCHAR," +
+                    "d_username VARCHAR," +
+                    "d_password VARCHAR," +
+                    "granted VARCHAR," +
+                    "problem VARCHAR," +
+                    "fees_paid VARCHAR," +
+                    "report VARCHAR);"
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -96,11 +98,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //*****************************TABLE FOR STAFF **************************************
         try {
             db.execSQL("CREATE TABLE " + TABLE_NAME_STAFF + " (" +
-                            "S_username VARCHAR," +
-                            "S_password VARCHAR," +
-                            "d_username VARCHAR," +
-                            "d_password VARCHAR," +
-                            "assigned VARCHAR);"
+                    "S_username VARCHAR," +
+                    "S_password VARCHAR," +
+                    "d_username VARCHAR," +
+                    "d_password VARCHAR," +
+                    "assigned VARCHAR);"
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -108,9 +110,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         try {
             db.execSQL("CREATE TABLE " + TABLE_NAME_FEEDBACK + " (" +
-                            "username VARCHAR," +
-                            "password VARCHAR," +
-                            "feedback VARCHAR);"
+                    "username VARCHAR," +
+                    "password VARCHAR," +
+                    "feedback VARCHAR);"
             );
         } catch (SQLException e) {
             e.printStackTrace();

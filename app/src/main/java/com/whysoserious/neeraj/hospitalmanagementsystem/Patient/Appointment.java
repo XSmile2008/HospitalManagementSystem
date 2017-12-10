@@ -2,11 +2,8 @@ package com.whysoserious.neeraj.hospitalmanagementsystem.Patient;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.whysoserious.neeraj.hospitalmanagementsystem.Doctor.Specialization;
-import com.whysoserious.neeraj.hospitalmanagementsystem.Personal_Info;
 import com.whysoserious.neeraj.hospitalmanagementsystem.R;
 import com.whysoserious.neeraj.hospitalmanagementsystem.activity.BaseActivity;
 

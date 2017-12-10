@@ -153,7 +153,7 @@ public class Select_Doctor extends BaseActivity {
                     ArrayAdapter adapter_doc = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, s_doctors);
                     lv_doctors.setAdapter(adapter_doc);
                 } else {
-                    Message.message(Select_Doctor.this, "Sorry, You have No Specialization");
+                    Message.message(Select_Doctor.this, "Sorry, You have No SpecializationActivity");
                 }
             } else {
                 Message.message(Select_Doctor.this, "Sorry no Doctor's available");

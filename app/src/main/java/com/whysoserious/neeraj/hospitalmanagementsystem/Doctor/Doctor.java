@@ -3,7 +3,6 @@ package com.whysoserious.neeraj.hospitalmanagementsystem.Doctor;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -60,7 +59,7 @@ public class Doctor extends BaseActivity {
                 i = new Intent(Doctor.this, Personal_Info.class);
                 break;
             case R.id.b_add_specialization:
-                i = new Intent(Doctor.this, Specialization.class);
+                i = new Intent(Doctor.this, SpecializationActivity.class);
                 break;
             case R.id.b_d_leaves:
                 i = new Intent(Doctor.this, Leaves.class);
