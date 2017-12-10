@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import java.sql.SQLData;
-
 public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper databaseHelper;
@@ -25,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
 
-        Bloginregister = (Button) findViewById(R.id.bloginregister);
+        Bloginregister = (Button) findViewById(R.id.btn_login_register);
         Bloginregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
