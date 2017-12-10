@@ -212,22 +212,14 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Closeable {
         contentValues.put("password", passwords);
 
         long l = db1.update(TABLE_NAME_USER, contentValues, "username=? and password=?", new String[]{ou, op});
-        if (l != -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return l != -1;
     }
 
     public boolean delete_user_credentials(String ou, String op) {
         SQLiteDatabase db1 = this.getWritableDatabase();
         long l = db1.delete(TABLE_NAME_USER, "username=? and password=?", new String[]{ou, op});
 
-        if (l != -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return l != -1;
     }
 
     //*************************************************DOCTOR LEAVES TABLE ********************************************************
@@ -246,11 +238,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Closeable {
 
         long l = db1.insert(TABLE_NAME_D_LEAVES, null, contentValues);
 
-        if (l != -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return l != -1;
     }
 
     //**********************************************DOCTOR SLOT TABLE ***********************************************************
@@ -268,11 +256,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Closeable {
         contentValues.put("available", available);
 
         long l = db1.insert(TABLE_NAME_D_SLOT, null, contentValues);
-        if (l != -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return l != -1;
     }
 
     public boolean update_slot(String username, String password, String specialization, String dfrom, String dto, String available) {
@@ -288,11 +272,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Closeable {
         contentValues.put("available", available);
 
         long l = db1.update(TABLE_NAME_D_SLOT, contentValues, "username=? and password=?", new String[]{username, password});
-        if (l != -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return l != -1;
     }
 
 
@@ -313,11 +293,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Closeable {
         contentValues.put("report", report);
 
         long l = db1.insert(TABLE_NAME_DOCTOR_PATIENT, null, contentValues);
-        if (l != -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return l != -1;
     }
 
     //update appointment
@@ -336,11 +312,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Closeable {
         contentValues.put("report", report);
 
         long l = db1.update(TABLE_NAME_DOCTOR_PATIENT, contentValues, "p_username=? and p_password=? and problem=?", new String[]{p_username, p_password, problem});
-        if (l != -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return l != -1;
     }
 
 
@@ -358,11 +330,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Closeable {
         contentValues.put("assigned", assigned);
 
         long l = db1.insert(TABLE_NAME_STAFF, null, contentValues);
-        if (l != -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return l != -1;
     }
 
     //update appointment
@@ -378,17 +346,12 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Closeable {
         contentValues.put("assigned", assigned);
 
         long l = db1.update(TABLE_NAME_STAFF, contentValues, "s_username=? and s_password=?", new String[]{s_username, s_password});
-        if (l != -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return l != -1;
     }
 
     public Cursor checkduplicates_in_staff(String s, String s1, String s2, String s3) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from " + TABLE_NAME_STAFF + " where s_username=? and s_password=? and d_username=? and d_password=?", new String[]{s, s1, s2, s3});
-        return res;
+        return db.rawQuery("select * from " + TABLE_NAME_STAFF + " where s_username=? and s_password=? and d_username=? and d_password=?", new String[]{s, s1, s2, s3});
     }
 
 
@@ -402,10 +365,6 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Closeable {
         contentValues.put("feedback", feecback);
 
         long l = db1.insert(TABLE_NAME_FEEDBACK, null, contentValues);
-        if (l != -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return l != -1;
     }
 }
